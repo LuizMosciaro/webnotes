@@ -13,6 +13,8 @@ def create_app():
     
     login_manager = LoginManager()
     login_manager.init_app(app)
+    login_manager.login_message = u'Para acessar faça login ou cadastre-se'
+    login_manager.login_message_category = 'Attention: '
     login_manager.login_view = 'auth.login'
 
     from .views import views
