@@ -1,5 +1,5 @@
-<h3> Projeto feito no framework Flask </h3>
-<p>Os principais pontos deste app são: <p>
+## Bloco de anotações online com [Flask](https://flask.palletsprojects.com/en/2.2.x)
+<p>Os principais pontos deste app são: </p>
 <ol>
   <li> Aprender mais sobre conceitos complexos do backend, como: 
     <ul>
@@ -12,12 +12,14 @@
     </ul>
   </li>
   <li> Utilizar o framework Flask de forma estruturada, a fim de criar uma aplicação leve e simples. </li>
+</ol>
+</br>
 
-<p> Para o deploy utilizei o Railway, é uma ferramenta leve e segue os conceitos de simplicidade pregados por <i>pythonistas</i> mundo a fora.
-Tento na medida do possível seguir a filosofia de Tim Peters em <b> Zen of Python</b>:
-<i>
-  Beautiful is better than ugly.
-  Explicit is better than implicit.
-  Simple is better than complex. </i></p>
-  
-  
+#### Para o deploy utilizei o [Railway](https://railway.app), é uma ferramenta leve e segue os conceitos de simplicidade pregados por *pythonistas* mundo a fora.
+Seguindo a filosofia de Tim Peters em **Zen of Python:**
+
+ >Beautiful is better than ugly.
+ Explicit is better than implicit.
+ Simple is better than complex.
+
+ Link do Projeto: [Clique aqui](https://webnotes-production.up.railway.app)
