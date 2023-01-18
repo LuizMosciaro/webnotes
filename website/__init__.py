@@ -6,23 +6,23 @@ db = SQLAlchemy()
 DB_NAME = 'database.db'
 
 def create_app():
-    application = Flask(__name__)
-    application.secret_key = 'B5d0B6I1iQgDkFja$10b19fb6c173503dbbfcd58c58d65'
-    application.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{DB_NAME}"
-    db.init_app(application)
+    app = Flask(__name__)
+    app.secret_key = 'B5d0B6I1iQgDkFja$10b19fb6c173503dbbfcd58c58d65'
+    app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{DB_NAME}"
+    db.init_app(app)
     
     login_manager = LoginManager()
-    login_manager.init_app(application)
+    login_manager.init_app(app)
     login_manager.login_view = 'auth.login'
 
     from .views import views
     from .auth import auth
     from .models import Note,User
 
-    application.register_blueprint(views,url_prefix='/')
-    application.register_blueprint(auth,url_prefix='/')
+    app.register_blueprint(views,url_prefix='/')
+    app.register_blueprint(auth,url_prefix='/')
 
-    with application.app_context():
+    with app.app_context():
         db.create_all()
         print('Database created')
 
@@ -30,5 +30,5 @@ def create_app():
     def load_user(id):
         return User.query.get(int(id))
     
-    return application
+    return app
 
