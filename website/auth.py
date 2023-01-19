@@ -57,4 +57,4 @@ def signup():
             flash('Usuario criado!',category='Success')
             login_user(user,remember=True)
             return redirect(url_for('views.home')) #views=documento|home=metodo
-    return render_template('signup.html',user=current_user)
+    return render_template('signup.html')
