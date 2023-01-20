@@ -1,13 +1,14 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+import os
 
 db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
-    app.secret_key = 'Test123'
-    app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://${{ MYSQLUSER }}:${{ MYSQLPASSWORD }}@${{ MYSQLHOST }}:${{ MYSQLPORT }}/${{ MYSQLDATABASE }}"
+    app.secret_key = os.getenv("SECRET_KEY")
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("MYSQL_URL")
     db.init_app(app)
     
     login_manager = LoginManager()
