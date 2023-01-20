@@ -1,15 +1,13 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-import os
 
 db = SQLAlchemy()
 
-
 def create_app():
     app = Flask(__name__)
-    app.secret_key = os.getenv("SECRET_KEY")
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("MYSQL_URL")
+    app.secret_key = 'Test123'
+    app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://${{ MYSQLUSER }}:${{ MYSQLPASSWORD }}@${{ MYSQLHOST }}:${{ MYSQLPORT }}/${{ MYSQLDATABASE }}"
     db.init_app(app)
     
     login_manager = LoginManager()
@@ -20,14 +18,10 @@ def create_app():
 
     from .views import views
     from .auth import auth
-    from .models import Note,User
+    from .models import User
 
     app.register_blueprint(views,url_prefix='/')
     app.register_blueprint(auth,url_prefix='/')
-
-    #with app.app_context():
-    #    db.create_all()
-    #    print(' * Memory Database created')
 
     @login_manager.user_loader
     def load_user(id):
