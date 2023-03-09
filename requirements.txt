@@ -16,3 +16,4 @@ PyMySQL==1.0.2
 SQLAlchemy==1.4.46
 urllib3==1.26.14
 Werkzeug==2.2.2
+mysqlclient==2.1.1
